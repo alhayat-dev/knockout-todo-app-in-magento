@@ -1,0 +1,28 @@
+//
+// Variables
+//-----------------------------------------
+
+@screen__lm: 1280px;
+
+//
+//  Style groups for 'mobile' devices
+//  ---------------------------------------------
+
+& when (@media-target = 'mobile'), (@media-target = 'all') {
+
+    @media only screen and (max-width: (@screen__ml)) {
+        .media-width('max', (@screen__ml));
+    }
+}
+
+
+//
+//  Style groups for 'desktop' devices
+//  ---------------------------------------------
+
+& when (@media-target = 'desktop'), (@media-target = 'all') {
+
+    @media all and (min-width: (@screen__ml)), print {
+        .media-width('min', (@screen__ml));
+    }
+}

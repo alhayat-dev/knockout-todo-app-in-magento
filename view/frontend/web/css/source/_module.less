@@ -1,14 +1,38 @@
+@import "lib/variables/_responsive.less";
+@import "lib/_responsive.less";
+@import "lib/variables/_progess_indicator.less";
+@import "_progress_indicator.less";
+
+
+//
+// Variables
+//-----------------------------------------
+@indent_standard: @indent__xs + @indent__s; // 5px + 10px = 15px
+
+@todo_link_action__text_decoration: none;
+@todo_link_action__color: #3a8565;
+@todo_items_li__border: 1px solid #dcdcdc;
+@todo_items_li__border_radius: 16px;
+@todo_items_li__background_color: @color-white;
+@todo_items_li__margin_right: @indent__base;
+@todo_items_li_top_description__background_color: #e6e4e4;
+@todo_items_li_top_description__padding: @indent_standard @indent_standard @indent__xl @indent_standard;
+@todo_items_li_top_description__border_radius: @todo_items_li__border_radius;
+@todo_items_li_top_description_h2__margin: 0 0 8px 0;
+@todo_items_li_top_description_h2__color: @todo_link_action__color;
+@todo_items_li_top_description_h2__font_weight: 400;
+@todo_items_description__color: #737373;
+@todo_items_bottom_section__color: #ff914d;
+
+
 //
 // Common
 //-----------------------------------------
 & when (@media-common = true) {
     .todo-wrapper {
-        margin: 0 -15px;
-        padding: 30px;
-
         a, .action {
-            text-decoration: none;
-            color: #3a8565;
+            text-decoration: @todo_link_action__text_decoration;
+            color: @todo_link_action__color;
         }
     }
 
@@ -22,26 +46,26 @@
         justify-content: flex-start;
 
         li {
-            border: 1px solid #dcdcdc;
-            .lib-css(border-radius, 16px);
-            background: #FFFFFF;
-            margin-right: 20px;
+            border: @todo_items_li__border;
+            .lib-css(border-radius, @todo_items_li__border_radius);
+            background: @todo_items_li__background_color;
+            margin-right: @todo_items_li__margin_right;
 
             .top-description {
-                background: #e6e4e4;
-                padding: 15px 15px 40px 15px;
-                .lib-css(border-radius, 16px);
+                background: @todo_items_li_top_description__background_color;
+                padding: @todo_items_li_top_description__padding;
+                .lib-css(border-radius, @todo_items_li__border_radius);
                 min-height: 116px;
                 position: relative;
 
                 & > h2 {
-                    margin: 0 0 8px 0;
-                    color: #3a8568;
-                    font-weight: 400;
+                    margin: @todo_items_li_top_description_h2__margin;
+                    color: @todo_items_li_top_description_h2__color;
+                    font-weight: @todo_items_li_top_description_h2__font_weight;
                 }
 
                 .description {
-                    color: #737373;
+                    color: @todo_items_description__color;
                 }
 
                 .bottom-section-wrapper {
@@ -55,7 +79,7 @@
                     flex-direction: row;
                     flex-wrap: wrap;
                     justify-content: space-between;
-                    color: #ff914d;
+                    color: @todo_items_bottom_section__color;
                     margin-top: 20px;
                 }
             }
@@ -86,29 +110,39 @@
 }
 
 
+
+
 //
-// Progress Indicator
-//--------------------------------------
-.progress-indicator {
+// Large Screen
+//-------------------------------------------
 
-    width: 100%;
-    background-color: #d9d9d9;
-    .lib-css(border-radius, 6px);
-    margin-bottom: 1rem;
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__ml) {
+    #todo-items {
+        li{
+            width: 23%;
+        }
+    }
+}
 
-    .bar {
-        width: 1%;
-        height: 18px;
-        background-color: #38b6ff;
-        .lib-css(transition, all 300ms);
-        .lib-css(border-radius, 6px);
-        position: relative;
+//
+// Medium Screen / IPAD
+//-------------------------------------------
 
-        .progress-text{
-            position: absolute;
-            width: 46%;
-            top: -1px;
-            color: #141313;
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__ml) {
+    #todo-items {
+        li {
+            width: 260px;
+        }
+    }
+}
+
+//
+// Mobile Screen
+//-------------------------------------------
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    #todo-items {
+        li{
+            width: 100%;
         }
     }
 }
