@@ -1,9 +1,69 @@
 <?xml version="1.0"?>
 
-<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceBlock name="content">
-            <block name="mc.todo" template="MageChamps_TodoList::todo.phtml" />
+            <block name="mc.todo" template="MageChamps_TodoList::todo.phtml">
+                <arguments>
+                    <argument name="jsLayout" xsi:type="array">
+                        <item name="components" xsi:type="array">
+                            <item name="mc-todo-scope" xsi:type="array">
+                                <item name="component" xsi:type="string">uiComponent</item>
+                                <item name="config" xsi:type="array">
+                                    <item name="template" xsi:type="string">MageChamps_TodoList/todopage</item>
+                                </item>
+                                <item name="children" xsi:type="array">
+                                    <item name="todo" xsi:type="array">
+                                        <item name="component" xsi:type="string">MageChamps_TodoList/js/view/todo</item>
+                                        <item name="displayArea" xsi:type="string">todo</item>
+                                        <item name="config" xsi:type="array">
+                                            <item name="todos" xsi:type="array">
+                                                <item name="0" xsi:type="array">
+                                                    <item name="id" xsi:type="number">1</item>
+                                                    <item name="title" xsi:type="string">Meetings</item>
+                                                    <item name="description" xsi:type="string">Attend daily meetings and discuss agenda.</item>
+                                                    <item name="start_date" xsi:type="string">10 Mar</item>
+                                                    <item name="end_date" xsi:type="string">14 Mar</item>
+                                                    <item name="completed_tasks" xsi:type="string">5</item>
+                                                    <item name="total_tasks" xsi:type="string">10</item>
+                                                </item>
+                                                <item name="1" xsi:type="array">
+                                                    <item name="id" xsi:type="number">2</item>
+                                                    <item name="title" xsi:type="string">Prototype Design</item>
+                                                    <item name="description" xsi:type="string">Split the prototype design into small tasks.</item>
+                                                    <item name="start_date" xsi:type="string">15 Mar</item>
+                                                    <item name="end_date" xsi:type="string">19 Mar</item>
+                                                    <item name="completed_tasks" xsi:type="string">7</item>
+                                                    <item name="total_tasks" xsi:type="string">12</item>
+                                                </item>
+                                                <item name="2" xsi:type="array">
+                                                    <item name="id" xsi:type="number">3</item>
+                                                    <item name="title" xsi:type="string">Plan and Execution</item>
+                                                    <item name="description" xsi:type="string">Create strategy and execute a development plan on it.</item>
+                                                    <item name="start_date" xsi:type="string">18 Mar</item>
+                                                    <item name="end_date" xsi:type="string">26 Mar</item>
+                                                    <item name="completed_tasks" xsi:type="string">6</item>
+                                                    <item name="total_tasks" xsi:type="string">9</item>
+                                                </item>
+                                                <item name="3" xsi:type="array">
+                                                    <item name="id" xsi:type="number">4</item>
+                                                    <item name="title" xsi:type="string">Deployments</item>
+                                                    <item name="description" xsi:type="string">Perform scheduled deployment on production.</item>
+                                                    <item name="start_date" xsi:type="string">18 Mar</item>
+                                                    <item name="end_date" xsi:type="string">26 Mar</item>
+                                                    <item name="completed_tasks" xsi:type="string">7</item>
+                                                    <item name="total_tasks" xsi:type="string">18</item>
+                                                </item>
+                                            </item>
+                                        </item>
+                                    </item>
+                                </item>
+                            </item>
+                        </item>
+                    </argument>
+                </arguments>
+            </block>
         </referenceBlock>
     </body>
 </page>
