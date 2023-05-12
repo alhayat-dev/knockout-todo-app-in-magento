@@ -1,6 +1,6 @@
 <div class="todo-wrapper">
     <div data-bind="visible: isVisible()">
-        <ul id="todo-items" data-bind="foreach: todos">
+        <ul id="todo-items" data-bind="foreach: todos()">
             <li>
                 <div class="top-description">
                     <h2 data-bind="text: title"></h2>
