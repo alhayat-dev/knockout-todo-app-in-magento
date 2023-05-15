@@ -15,6 +15,11 @@
                 <div class="bottom-description">
                     <div class="action-toolbar">
                         <p><span data-bind="text: completed_tasks + '/' + total_tasks"></span></p>
+                        <div class="todo-action">
+                            <a class="action edit" data-bind="href: { href: '#'}, click: $parent.editTodo">
+                                <span data-bind="text: 'Edit'"></span>
+                            </a>
+                        </div>
                     </div>
                     <div class="progress-indicator">
                         <div class="bar"
@@ -31,5 +36,18 @@
     </div>
     <div data-bind="visible: !isVisible()">
         <p data-bind="text: 'There are no items in your to-do list.'"></p>
+    </div>
+</div>
+
+<div id="todo-form" data-bind="visible: isPopUpVisible()">
+    <div class="block-content">
+        <form class="form form-todo" data-bind="attr: {
+            'data-hasrequired': '* Required Fieldss'
+        }">
+
+            <!-- ko foreach: getRegion('additional-fieldsets') -->
+                <!-- ko template: getTemplate() --><!-- /ko -->
+            <!-- /ko -->
+        </form>
     </div>
 </div>
