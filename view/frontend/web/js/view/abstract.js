@@ -33,11 +33,13 @@ define([
             if (!this.popUpObj){
                 var buttons = this.popUp.options.buttons;
 
-                this.popUp.options.buttons = [{
-                    text: buttons.cancel.text,
-                    class: buttons.cancel.class,
-                    click: this.onClosePopUp.bind(this)
-                }];
+                this.popUp.options.buttons = this.getPopUpButtons(
+                    [{
+                        text: buttons.cancel.text,
+                        class: buttons.cancel.class,
+                        click: this.onClosePopUp.bind(this)
+                    }]
+                );
 
                 this.popUp.options.closed = this.afterBindClosePopUp.bind(this);
                 this.popUp.options.modalCloseBtnHandler = this.onClosePopUp.bind(this);

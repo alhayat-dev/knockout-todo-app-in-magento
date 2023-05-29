@@ -17,6 +17,11 @@
                                     <item name="todo" xsi:type="array">
                                         <item name="component" xsi:type="string">MageChamps_TodoList/js/view/todo</item>
                                         <item name="displayArea" xsi:type="string">todo</item>
+                                        <item name="config" xsi:type="array">
+                                            <item name="deps" xsi:type="array">
+                                                <item name="0" xsi:type="string">todoProvider</item>
+                                            </item>
+                                        </item>
                                         <item name="children" xsi:type="array">
                                             <item name="todo-fieldset" xsi:type="array">
                                                 <item name="component" xsi:type="string">uiComponent</item>
@@ -29,6 +34,7 @@
                                                             <item name="template" xsi:type="string">ui/form/field</item>
                                                             <item name="elementTemplate" xsi:type="string">ui/form/element/input</item>
                                                         </item>
+                                                        <item name="provider" xsi:type="string">todoProvider</item>
                                                         <item name="dataScope" xsi:type="string" translate="true">todo.title</item>
                                                         <item name="label" xsi:type="string" translate="true">Title</item>
                                                         <item name="sortOrder" xsi:type="string">0</item>
@@ -39,11 +45,65 @@
                                                             <item name="max_text_length" xsi:type="number">200</item>
                                                         </item>
                                                     </item>
+                                                    <item name="description" xsi:type="array">
+                                                        <item name="component" xsi:type="string">Magento_Ui/js/form/element/textarea</item>
+                                                        <item name="config" xsi:type="array">
+                                                            <item name="customScope" xsi:type="string">todo</item>
+                                                            <item name="template" xsi:type="string">ui/form/field</item>
+                                                        </item>
+                                                        <item name="provider" xsi:type="string">todoProvider</item>
+                                                        <item name="dataScope" xsi:type="string" translate="true">todo.description</item>
+                                                        <item name="label" xsi:type="string" translate="true">Description</item>
+                                                        <item name="sortOrder" xsi:type="string">1</item>
+                                                        <item name="placeholder" xsi:type="string">Enter max 200 characters.</item>
+                                                        <item name="validation" xsi:type="array">
+                                                            <item name="required-entry" xsi:type="boolean">false</item>
+                                                            <item name="max_text_length" xsi:type="number">200</item>
+                                                        </item>
+                                                    </item>
+                                                    <item name="start_date" xsi:type="array">
+                                                        <item name="component" xsi:type="string">Magento_Ui/js/form/element/date</item>
+                                                        <item name="config" xsi:type="array">
+                                                            <item name="customScope" xsi:type="string">todo</item>
+                                                            <item name="template" xsi:type="string">ui/form/field</item>
+                                                        </item>
+                                                        <item name="provider" xsi:type="string">todoProvider</item>
+                                                        <item name="dataScope" xsi:type="string" translate="true">todo.start_date</item>
+                                                        <item name="label" xsi:type="string" translate="true">Start From</item>
+                                                        <item name="sortOrder" xsi:type="string">2</item>
+                                                        <item name="placeholder" xsi:type="string">mm/dd/yyyy</item>
+                                                        <item name="validation" xsi:type="array">
+                                                            <item name="required-entry" xsi:type="boolean">true</item>
+                                                            <item name="date" xsi:type="boolean">true</item>
+                                                        </item>
+                                                    </item>
+                                                    <item name="end_date" xsi:type="array">
+                                                        <item name="component" xsi:type="string">MageChamps_TodoList/js/form/element/date</item>
+                                                        <item name="config" xsi:type="array">
+                                                            <item name="customScope" xsi:type="string">todo</item>
+                                                            <item name="template" xsi:type="string">ui/form/field</item>
+                                                            <item name="imports" xsi:type="array">
+                                                                <item name="dependentValue" xsi:type="string">mc-todo-scope.todo.todo-fieldset.start_date:value</item>
+                                                            </item>
+                                                        </item>
+                                                        <item name="provider" xsi:type="string">todoProvider</item>
+                                                        <item name="dataScope" xsi:type="string" translate="true">todo.end_date</item>
+                                                        <item name="label" xsi:type="string" translate="true">End Date</item>
+                                                        <item name="sortOrder" xsi:type="string">3</item>
+                                                        <item name="placeholder" xsi:type="string">mm/dd/yyyy</item>
+                                                        <item name="validation" xsi:type="array">
+                                                            <item name="required-entry" xsi:type="boolean">true</item>
+                                                            <item name="date" xsi:type="boolean">true</item>
+                                                        </item>
+                                                    </item>
                                                 </item>
                                             </item>
                                         </item>
                                     </item>
                                 </item>
+                            </item><!-- ko-todo-scope ends her -->
+                            <item name="todoProvider" xsi:type="array">
+                                <item name="component" xsi:type="string">uiComponent</item>
                             </item>
                         </item>
                     </argument>
